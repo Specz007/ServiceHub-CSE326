@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | ServiceHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>ServiceHub</h1>
+        <nav aria-label="Main navigation">
+            <a href="dashboard.html" aria-current="page">Home</a>
+            <a href="providers.html">Providers</a>
+            <a href="categories.html">Categories</a>
+            <a href="requests.html">Requests</a>
+            <a href="users.html" class="admin-only">Users</a>
+            <a href="reports.html" class="admin-only">Reports</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section class="welcome-banner">
+            <h2>Welcome to ServiceHub</h2>
+            <p>Manage and explore service providers in one place.</p>
+        </section>
+        <section>
+            <h2>Dashboard Overview</h2>
+            <div class="dashboard-cards">
+                <article><h3>👥 Total Providers</h3><p>24</p></article>
+<article><h3>📋 Total Requests</h3><p>48</p></article>
+<article><h3>⏳ Pending Requests</h3><p>12</p></article>
+<article><h3>✅ Completed Requests</h3><p>30</p></article>
+            </div>
+        </section>
+        <section>
+            <h2>Available Services</h2>
+            <div class="service-container">
+                <article class="service-card"><img src="images/home-maintenance.jpg" alt="Home maintenance"><h3>Home Maintenance</h3></article>
+                <article class="service-card"><img src="images/electrical.jpg" alt="Electrical services"><h3>Electrical Services</h3></article>
+                <article class="service-card"><img src="images/plumbing.jpg" alt="Plumbing"><h3>Plumbing</h3></article>
+                <article class="service-card"><img src="images/healthcare.jpg" alt="Healthcare"><h3>Healthcare</h3></article>
+                <article class="service-card"><img src="images/education.jpg" alt="Education"><h3>Education</h3></article>
+                <article class="service-card"><img src="images/transportation.jpg" alt="Transportation"><h3>Transportation</h3></article>
+            </div>
+        </section>
+    </main>
+    <footer><p>© 2026 ServiceHub. All Rights Reserved.</p></footer>
+    <script src="js/role.js"></script>
+</body>
+</html>
+

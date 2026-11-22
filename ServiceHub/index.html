@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | ServiceHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>ServiceHub</h1>
+        <p>Service Provider Directory</p>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>Register</h2>
+            <form onsubmit="registerUser(event)">
+                <label for="full-name">Full Name</label>
+                <input id="full-name" type="text" placeholder="Enter your name" required>
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="Enter your email" required>
+                <label for="password">Password</label>
+                <input id="password" type="password" placeholder="Create password" required>
+                <label for="role">Select Role</label>
+                <select id="role">
+                    <option value="customer">Customer</option>
+                    <option value="admin">Administrator</option>
+                </select>
+                <button type="submit">Register</button>
+            </form>
+            <p class="page-link">Already registered? <a href="login.html">Login here</a></p>
+        </section>
+    </main>
+    <footer><p>© 2026 ServiceHub. All Rights Reserved.</p></footer>
+    <script>
+    function registerUser(event) {
+        event.preventDefault();
+
+        var name = document.getElementById("full-name").value.trim();
+        var email = document.getElementById("email").value.trim().toLowerCase();
+        var password = document.getElementById("password").value.trim();
+        var role = document.getElementById("role").value;
+
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters long!");
+            return;
+        }
+
+        var defaultUsers = [
+            { id: "U101", name: "Aarav Mehta", email: "aarav@gmail.com", password: "123456", role: "Customer" },
+            { id: "U102", name: "Sneha Kapoor", email: "sneha@gmail.com", password: "123456", role: "Customer" },
+            { id: "U103", name: "Rohan Singh", email: "admin@servicehub.com", password: "123456", role: "Administrator" }
+        ];
+
+        var users = JSON.parse(localStorage.getItem("usersList")) || defaultUsers;
+        var roleText = (role === "admin") ? "Administrator" : "Customer";
+
+        var newUser = {
+            id: "U" + (101 + users.length),
+            name: name,
+            email: email,
+            password: password,
+            role: roleText
+        };
+
+        users.push(newUser);
+        localStorage.setItem("usersList", JSON.stringify(users));
+
+        localStorage.setItem("userRole", role);
+        localStorage.setItem("currentUser", name);
+
+        alert("Welcome " + name + "! Registered as " + roleText + ".");
+        window.location.href = "dashboard.html";
+    }
+</script>
+</body>
+</html>

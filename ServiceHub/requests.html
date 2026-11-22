@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requests | ServiceHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Service Requests</h1>
+        <nav aria-label="Main navigation">
+            <a href="dashboard.html">Home</a>
+            <a href="providers.html">Providers</a>
+            <a href="categories.html">Categories</a>
+            <a href="requests.html" aria-current="page">Requests</a>
+            <a href="users.html" class="admin-only">Users</a>
+            <a href="reports.html" class="admin-only">Reports</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Only Customers see this form -->
+        <section class="customer-only">
+            <h2>Book a Service</h2>
+            <form onsubmit="addRequest(event)">
+                <label for="customer-name">Customer Name</label>
+                <input id="customer-name" type="text" placeholder="Customer Name">
+
+                <label for="service-select">Select Service</label>
+                <select id="service-select">
+                    <option value="">Select Service</option>
+                    <option value="Home Maintenance">Home Maintenance</option>
+                    <option value="Electrical Services">Electrical Services</option>
+                    <option value="Plumbing">Plumbing</option>
+                    <option value="Healthcare">Healthcare</option>
+                    <option value="Education">Education</option>
+                </select>
+
+                <label for="request-date">Preferred Date</label>
+                <input id="request-date" type="date">
+
+                <label for="request-desc">Request Description</label>
+                <textarea id="request-desc" placeholder="Request Description"></textarea>
+
+                <button type="submit">Submit Request</button>
+            </form>
+        </section>
+
+        <!-- Both see the table, but only Admin gets the Complete button -->
+        <section>
+            <h2>Service Requests List</h2>
+            <button class="admin-only" onclick="clearCompleted()" style="background-color: #ef4444; margin-bottom: 10px;">Remove All Completed</button>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Service</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="request-list"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>© 2026 ServiceHub. All Rights Reserved.</p></footer>
+    <script src="js/requests.js"></script>
+    <script src="js/role.js"></script>
+</body>
+</html>

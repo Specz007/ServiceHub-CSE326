@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | ServiceHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>ServiceHub</h1>
+        <p>Service Provider Directory</p>
+    </header>
+    <main>
+        <section class="form-section">
+            <h2>Login</h2>
+            <form onsubmit="loginUser(event)">
+                <label for="login-email">Email</label>
+                <input id="login-email" type="email" placeholder="Enter your email" required>
+
+                <label for="login-password">Password</label>
+                <input id="login-password" type="password" placeholder="Enter your password" required>
+
+                <button type="submit">Login</button>
+            </form>
+            <p class="page-link">Don't have an account? <a href="index.html">Register here</a></p>
+        </section>
+    </main>
+    <footer><p>© 2026 ServiceHub. All Rights Reserved.</p></footer>
+
+    <script>
+    function loginUser(event) {
+        event.preventDefault();
+
+        var email = document.getElementById("login-email").value.trim().toLowerCase();
+        var password = document.getElementById("login-password").value.trim();
+
+        var defaultUsers = [
+            { id: "U101", name: "Aarav Mehta", email: "aarav@gmail.com", password: "123456", role: "Customer" },
+            { id: "U102", name: "Sneha Kapoor", email: "sneha@gmail.com", password: "123456", role: "Customer" },
+            { id: "U103", name: "Rohan Singh", email: "admin@servicehub.com", password: "123456", role: "Administrator" }
+        ];
+
+        // Uses a fresh key "usersList" so old data is ignored
+        var users = JSON.parse(localStorage.getItem("usersList")) || defaultUsers;
+        var found = false;
+
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].email.toLowerCase() === email && users[i].password === password) {
+                var roleValue = (users[i].role === "Administrator") ? "admin" : "customer";
+
+                localStorage.setItem("userRole", roleValue);
+                localStorage.setItem("currentUser", users[i].name);
+
+                alert("Welcome back, " + users[i].name + "!");
+                window.location.href = "dashboard.html";
+                found = true;
+                break;
+            }
+        }
+
+        if (found === false) {
+            alert("Invalid email or password!");
+        }
+    }
+</script>
+</body>
+</html>

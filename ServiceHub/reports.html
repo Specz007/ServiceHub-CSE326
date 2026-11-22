@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports | ServiceHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Service Reports</h1>
+        <nav aria-label="Main navigation">
+            <a href="dashboard.html">Home</a>
+            <a href="providers.html">Providers</a>
+            <a href="categories.html">Categories</a>
+            <a href="requests.html">Requests</a>
+            <a href="users.html" class="admin-only">Users</a>
+            <a href="reports.html" class="admin-only" aria-current="page">Reports</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main class="admin-only">
+        <section>
+            <h2>Project Statistics</h2>
+            <div class="dashboard-cards">
+                <article><h3>👥 Total Users</h3><p>50</p></article>
+                <article><h3>🛠️ Total Providers</h3><p>24</p></article>
+                <article><h3>📋 Total Requests</h3><p>48</p></article>
+                <article><h3>⏳ Pending Requests</h3><p>12</p></article>
+                <article><h3>✅ Completed Requests</h3><p>30</p></article>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>© 2026 ServiceHub. All Rights Reserved.</p></footer>
+    <script src="js/role.js"></script>
+</body>
+</html>

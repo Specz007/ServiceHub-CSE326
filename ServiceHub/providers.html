@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Providers | ServiceHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Service Providers</h1>
+        <nav aria-label="Main navigation">
+            <a href="dashboard.html">Home</a>
+            <a href="providers.html" aria-current="page">Providers</a>
+            <a href="categories.html">Categories</a>
+            <a href="requests.html">Requests</a>
+            <a href="users.html" class="admin-only">Users</a>
+            <a href="reports.html" class="admin-only">Reports</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-only">
+            <h2>Add a Provider</h2>
+            <form onsubmit="addProvider(event)">
+                <label for="provider-name">Provider Name</label>
+                <input id="provider-name" type="text" placeholder="Provider Name">
+                <label for="provider-category">Service Category</label>
+                <input id="provider-category" type="text" placeholder="Service Category">
+                <label for="provider-email">Email</label>
+                <input id="provider-email" type="email" placeholder="Email">
+                <label for="provider-phone">Contact Number</label>
+                <input id="provider-phone" type="tel" placeholder="Contact Number">
+                <label for="provider-description">Service Description</label>
+                <textarea id="provider-description" placeholder="Service Description"></textarea>
+                <button type="submit">Add Provider</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Provider Directory</h2>
+            <label class="visually-hidden" for="provider-search">Search providers</label>
+            <input class="search-box" id="provider-search" type="search" placeholder="Search Providers" onkeyup="searchProviders()">
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Email</th>
+                            <th>Contact</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="provider-list"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>© 2026 ServiceHub. All Rights Reserved.</p></footer>
+    <script src="js/providers.js"></script>
+    <script src="js/role.js"></script>
+</body>
+</html>

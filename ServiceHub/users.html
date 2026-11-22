@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users | ServiceHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>User Management</h1>
+        <nav aria-label="Main navigation">
+            <a href="dashboard.html">Home</a>
+            <a href="providers.html">Providers</a>
+            <a href="categories.html">Categories</a>
+            <a href="requests.html">Requests</a>
+            <a href="users.html" class="admin-only" aria-current="page">Users</a>
+            <a href="reports.html" class="admin-only">Reports</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+
+    <main class="admin-only">
+        <section>
+            <h2>Registered Users</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="user-list"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer><p>© 2026 ServiceHub. All Rights Reserved.</p></footer>
+
+    <script src="js/users.js"></script>
+    <script src="js/role.js"></script>
+</body>
+</html>

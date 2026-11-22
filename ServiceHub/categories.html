@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | ServiceHub</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Service Categories</h1>
+        <nav aria-label="Main navigation">
+            <a href="dashboard.html">Home</a>
+            <a href="providers.html">Providers</a>
+            <a href="categories.html" aria-current="page">Categories</a>
+            <a href="requests.html">Requests</a>
+            <a href="users.html" class="admin-only">Users</a>
+            <a href="reports.html" class="admin-only">Reports</a>
+            <a href="index.html">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-only">
+            <h2>Manage Categories</h2>
+            <form onsubmit="addCategory(event)">
+                <label for="category-name">Category Name</label>
+                <input id="category-name" type="text" placeholder="Category Name">
+                <button type="submit">Add Category</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Available Categories</h2>
+            <ul class="category-list" id="category-list"></ul>
+        </section>
+    </main>
+
+    <footer><p>© 2026 ServiceHub. All Rights Reserved.</p></footer>
+    <script src="js/categories.js"></script>
+    <script src="js/role.js"></script>
+</body>
+</html>
